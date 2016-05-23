@@ -2,6 +2,7 @@ package com.ericksen.christian.todolist;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
@@ -71,10 +72,16 @@ public class MainActivity extends Activity {
 
 
             }
-        });
+        })
 
+    public void onItemClickListener(){
+        listView.setOnItemClickListener(new ListView.OnItemClickListener{
+            @Override
+                    public void onItemClick(View v){
+                Intent intent =new Intent(MainActivity.this, SecondActivity.class);
+                startActivity(intent);
 
-    }
+    });
 
 
 
