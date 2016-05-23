@@ -12,9 +12,39 @@
     tools:context="com.ericksen.christian.todolist.SecondActivity"
     tools:showIn="@layout/activity_second">
 
-    <TextView
+    <Button
+        android:id="@+id/back"
+        android:text="Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hello"/>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/tododetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/back"
+        android:layout_centerHorizontal="true"
+        android:typeface="sans"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        />
+
+    <EditText
+        android:id="@+id/edittextdetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tododetail"
+        />
+
+    <ListView
+        android:id="@+id/listviewdetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edittextdetail"
+        />
 
 </RelativeLayout>

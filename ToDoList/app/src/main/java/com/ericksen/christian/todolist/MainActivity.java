@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
 
         arrayListToDo = new ArrayList<>();
         arrayAdapterToDo = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayListToDo);
-        ListView listView = (ListView) findViewById(R.id.listview);
+        final ListView listView = (ListView) findViewById(R.id.listview);
         if (listView != null) {
             listView.setAdapter(arrayAdapterToDo);
 
@@ -72,16 +72,19 @@ public class MainActivity extends Activity {
 
 
             }
-        })
+        });
 
-    public void onItemClickListener(){
-        listView.setOnItemClickListener(new ListView.OnItemClickListener{
+        assert listView != null;
+        listView.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
             @Override
-                    public void onItemClick(View v){
-                Intent intent =new Intent(MainActivity.this, SecondActivity.class);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String item = (String) listView.getItemAtPosition(position);
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 startActivity(intent);
+            }
+        });
 
-    });
+    }
 
 
 
