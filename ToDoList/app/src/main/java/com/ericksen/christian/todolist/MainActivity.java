@@ -1,9 +1,9 @@
 package com.ericksen.christian.todolist;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private ArrayList<String> arrayListToDo;
     private ArrayAdapter<String> arrayAdapterToDo;
@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        arrayListToDo = new ArrayList<String>();
-        arrayAdapterToDo = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayListToDo);
+        arrayListToDo = new ArrayList<>();
+        arrayAdapterToDo = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayListToDo);
         ListView listView = (ListView) findViewById(R.id.listview);
         if (listView != null) {
             listView.setAdapter(arrayAdapterToDo);
@@ -78,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         if (v.getId() != R.id.listview) {
@@ -121,5 +123,17 @@ public class MainActivity extends AppCompatActivity {
             Log.i("ON BACK PRESSED", e.getMessage());
         }
     }
+
+
+//    public void onItemClickListener(){
+//        listView.setOnItemClickListener(new ListView.OnItemClickListener{
+//            @Override
+//                    public void onItemClick(View view){
+//                Intent intent =new Intent(MainActivity.this, SecondActivity.class);
+//                startActivity(intent);
+//            }
+//        });
+//    }
+
 }
 
